@@ -2,7 +2,7 @@
  * ColorTextil Studio - Service Worker para modo Offline en Android y PWA
  */
 
-const CACHE_NAME = 'colortextil-cache-v1';
+const CACHE_NAME = 'colortextil-cache-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -45,7 +45,6 @@ self.addEventListener('fetch', (event) => {
         return cachedResponse;
       }
       return fetch(event.request).then((networkResponse) => {
-        // Cachear fuentes de Google Fonts y recursos estáticos
         if (event.request.url.includes('fonts.googleapis.com') || event.request.url.includes('fonts.gstatic.com')) {
           const responseClone = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {

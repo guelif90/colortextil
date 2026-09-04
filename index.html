@@ -2,11 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ColorTextil Studio - Software profesional para formulación, detección por foto y mezcla de tintas textiles a base de agua (acraminas y lacas) para serigrafía.">
-  <title>ColorTextil Studio | Formulación y Mezcla de Tintas al Agua para Serigrafía</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="description" content="ColorTextil Studio - Formulación y pesaje de tintas textiles al agua para serigrafía en el móvil.">
+  <title>ColorTextil Studio</title>
   
-  <meta name="theme-color" content="#00e5ff">
+  <meta name="theme-color" content="#090c12">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="mobile-web-app-capable" content="yes">
@@ -15,74 +15,40 @@
 
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/print.css" media="print">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%2300e5ff'/><path d='M30 65 Q50 20 70 65' stroke='%23ff2a85' stroke-width='10' fill='none'/></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%2300d4e6'/><path d='M30 65 Q50 20 70 65' stroke='%23f43f5e' stroke-width='10' fill='none'/></svg>">
 </head>
 <body>
 
   <!-- ===================================================================
-       Encabezado Principal y Pestañas
+       Cabecera Compacta Móvil (Sticky Header)
        =================================================================== -->
   <header class="app-header">
-    <div class="header-container">
-      <div class="brand">
-        <div class="brand-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 3C7.5 3 3.5 6.5 3.5 11c0 2.5 1.5 4.7 3.5 6 .3.2.5.5.5.8 0 .8-.7 1.5-1.5 1.5H5c-.6 0-1 .4-1 1s.4 1 1 1h4c4.4 0 8-3.6 8-8 0-4.5-4.5-9-5-9.5zm-5 8c-.8 0-1.5-.7-1.5-1.5S6.2 8 7 8s1.5.7 1.5 1.5S7.8 11 7 11zm3-4c-.8 0-1.5-.7-1.5-1.5S9.2 4 10 4s1.5.7 1.5 1.5S10.8 7 10 7zm4 0c-.8 0-1.5-.7-1.5-1.5S13.2 4 14 4s1.5.7 1.5 1.5S14.8 7 14 7zm3 4c-.8 0-1.5-.7-1.5-1.5S16.2 8 17 8s1.5.7 1.5 1.5S17.8 11 17 11z"/>
-          </svg>
-        </div>
-        <div>
-          <h1 class="brand-title">ColorTextil Studio</h1>
-          <div class="brand-subtitle">Formulación Profesional de Tintas al Agua</div>
-        </div>
+    <div class="header-inner">
+      <div class="brand-wrap">
+        <div class="brand-dot"></div>
+        <span class="brand-name">ColorTextil</span>
       </div>
 
-      <nav class="nav-tabs" aria-label="Navegación principal">
-        <button class="tab-btn active" data-target="matcherTab" id="navMatcher">
-          <span>🎯</span> Formulador & Fotos
-        </button>
-        <button class="tab-btn" data-target="simulatorTab" id="navSimulator">
-          <span>🧪</span> Laboratorio Libre
-        </button>
-        <button class="tab-btn" data-target="weighingTab" id="navWeighing">
-          <span>⚖️</span> Ficha de Pesaje
-        </button>
-        <button class="tab-btn" data-target="savedTab" id="navSaved">
-          <span>📚</span> Fórmulas Guardadas
-        </button>
-        <button class="tab-btn" data-target="guideTab" id="navGuide">
-          <span>💡</span> Guía de Taller
-        </button>
-      </nav>
+      <div class="header-controls">
+        <select id="regionalBrandSelect" class="brand-selector-pill" title="Marca de tintas">
+          <option value="genesis" selected>🇺🇾 Gênesis T.58</option>
+          <option value="vortex">🇦🇷 Vortex Tex</option>
+          <option value="generic">🌐 Color Index</option>
+        </select>
 
-      <div style="display: flex; align-items: center; gap: 0.6rem;">
-        <!-- Botón de Instalación Directa -->
-        <button id="installAppBtn" class="btn-primary" style="padding: 0.35rem 0.85rem; font-size: 0.82rem; border-radius: var(--radius-full); box-shadow: 0 0 15px rgba(0,229,255,0.4);" title="Instalar como App en este dispositivo">
-          <span style="font-size: 1rem;">📲</span> Instalar App
+        <button id="installAppBtn" class="btn-header-install" title="Instalar aplicación en tu móvil">
+          <span>📲</span>
+          <span class="install-btn-text">Instalar</span>
         </button>
-
-        <!-- Selector Regional de Pigmentos -->
-        <div style="display: flex; align-items: center; gap: 0.35rem; background: rgba(255,255,255,0.06); padding: 0.35rem 0.65rem; border-radius: var(--radius-full); border: 1px solid var(--border-subtle);" title="Selecciona la marca de pigmentos que usas en tu taller">
-          <span style="font-size: 0.85rem;">📦</span>
-          <select id="regionalBrandSelect" style="background: transparent; border: none; color: #ffffff; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; outline: none; cursor: pointer;">
-            <option value="genesis" style="background: #111827;" selected>🇺🇾 / 🇧🇷 Gênesis Sericor T.58 (Uruguay / Brasil)</option>
-            <option value="vortex" style="background: #111827;">🇦🇷 Vortex Colores Tex (Argentina)</option>
-            <option value="generic" style="background: #111827;">🌐 Color Index Estándar</option>
-          </select>
-        </div>
-
-        <div class="header-status">
-          <span class="status-dot"></span>
-          <span>Taller Activo</span>
-        </div>
       </div>
     </div>
   </header>
 
   <!-- ===================================================================
-       Lupa Flotante (Magnifier Loupe)
+       Lupa Flotante Táctil Elevada
        =================================================================== -->
   <div id="loupeContainer" class="loupe-container" aria-hidden="true">
-    <canvas id="loupeCanvas" width="140" height="110"></canvas>
+    <canvas id="loupeCanvas" width="120" height="90"></canvas>
     <div class="loupe-info">
       <div class="loupe-color-bar">
         <div class="loupe-swatch"></div>
@@ -93,573 +59,369 @@
   </div>
 
   <!-- ===================================================================
-       Contenido Principal
+       Contenedor Principal de Vistas
        =================================================================== -->
-  <main class="main-wrapper">
+  <main class="main-content">
 
     <!-- ===============================================================
-         VISTA 1: FORMULADOR Y DETECCIÓN POR FOTO
+         VISTA 1: FORMULADOR & CÁMARA (NÚCLEO DE TALLER)
          =============================================================== -->
     <section id="matcherTab" class="tab-view active">
-      <div class="grid-2col">
-
-        <!-- Columna Izquierda: Carga de Imagen e Inspector -->
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title">
-              <span class="icon">📸</span> Detección de Color en Foto
-            </h2>
-            <span class="card-badge">Muestreo Textil</span>
-          </div>
-
-          <!-- Dropzone -->
-          <div id="dropzone" class="dropzone-container" role="button" tabindex="0">
-            <div class="dropzone-icon">🧵</div>
-            <div class="dropzone-title">Arrastra una foto de la tela o muestra aquí</div>
-            <div class="dropzone-subtitle">
-              o haz clic para explorar tus archivos • También puedes pegar con <strong>Ctrl + V</strong>
-            </div>
-            <input type="file" id="fileInput" accept="image/*" style="display: none;">
-          </div>
-
-          <!-- Barra de Herramientas de Muestreo -->
-          <div class="image-controls-bar">
-            <div class="sample-size-selector">
-              <span>Área Gotero:</span>
-              <div class="sample-size-btns">
-                <button class="sample-btn" data-size="1" title="Píxel individual exacto">1x1</button>
-                <button class="sample-btn active" data-size="3" title="Promedio 3x3 (mitiga hilos de tela)">3x3</button>
-                <button class="sample-btn" data-size="5" title="Promedio 5x5 (recomendado para algodón rústico)">5x5</button>
-              </div>
-            </div>
-
-            <div class="demo-swatches">
-              <span style="font-size: 0.78rem; color: var(--text-muted);">Muestras de prueba:</span>
-              <button class="demo-btn" id="demoSwatch1">Verde Militar</button>
-              <button class="demo-btn" id="demoSwatch2">Mostaza Cálido</button>
-              <button class="demo-btn" id="demoSwatch3">Azul Marino</button>
-            </div>
-          </div>
-
-          <!-- Canvas del Inspector -->
-          <div class="canvas-wrapper">
-            <canvas id="imageCanvas"></canvas>
-            <div id="canvasPlaceholder" class="canvas-placeholder">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-              </svg>
-              <p>Carga una foto de prenda o diseño para usar la lupa y gotero.</p>
-            </div>
-          </div>
-
-          <!-- Paleta Extraída Automática (K-Means) -->
-          <div class="palette-section">
-            <div class="palette-header">
-              <span class="palette-title">Colores Dominantes Detectados</span>
-              <span style="font-size: 0.75rem; color: var(--text-muted);">Haz clic en un color para formularlo</span>
-            </div>
-            <div id="paletteChips" class="palette-chips">
-              <div style="font-size: 0.8rem; color: var(--text-subtle); grid-column: 1 / -1;">
-                Carga una imagen para extraer automáticamente los tonos principales.
-              </div>
-            </div>
-          </div>
+      
+      <!-- Tarjeta 1: Color Objetivo y Fondo Textil -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title"><span>🎯</span> Color de Muestra</span>
+          <span id="targetColorRgbLabel" class="color-rgb-label">RGB(228, 0, 102)</span>
         </div>
 
-        <!-- Columna Derecha: Color Objetivo y Receta Generada -->
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title">
-              <span class="icon">🎯</span> Color Objetivo & Fórmula
-            </h2>
-            <span class="card-badge" id="formulaTypeBadge">Telas Claras</span>
+        <!-- Barra de Color Directa -->
+        <div class="color-select-bar">
+          <div class="native-color-wrap">
+            <input type="color" id="targetColorNative" value="#E40066" title="Toca para elegir color">
           </div>
+          <input type="text" id="targetColorHex" class="color-input-text" value="#E40066" maxlength="7" spellcheck="false" placeholder="#HEX">
+        </div>
 
-          <!-- Selector / Display de Color Objetivo -->
-          <div class="color-picker-group">
-            <div class="color-input-wrapper">
-              <input type="color" id="targetColorNative" value="#E40066" title="Seleccionar color manualmente">
-            </div>
-            <div class="color-input-details">
-              <div style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">
-                Color Seleccionado
-              </div>
-              <div class="color-code-inputs">
-                <input type="text" id="targetColorHex" class="text-input" value="#E40066" maxlength="7" spellcheck="false">
-                <span id="targetColorRgbLabel" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted);">
-                  RGB(228, 0, 102)
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tipo de Prenda / Base Requerida -->
-          <div class="fabric-selector">
-            <span class="fabric-label">Tipo de Prenda / Fondo Textil:</span>
-            <div class="fabric-options">
-              <div class="fabric-card active" data-fabric="light" id="fabricLightBtn">
-                <span class="fabric-icon">👕</span>
-                <div>
-                  <div class="fabric-card-title">Tela Clara / Blanca</div>
-                  <div class="fabric-card-desc">Base Acramina translúcida (tacto cero)</div>
-                </div>
-              </div>
-              <div class="fabric-card" data-fabric="dark" id="fabricDarkBtn">
-                <span class="fabric-icon">🎽</span>
-                <div>
-                  <div class="fabric-card-title">Tela Oscura / Negra</div>
-                  <div class="fabric-card-desc">Laca Blanca Cubritiva con Dióxido de Titanio</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <button id="calculateFormulaBtn" class="btn-primary">
-            <span>✨</span> Calcular Fórmula Óptima
+        <!-- Segmented Control de Tela (Clara / Oscura) -->
+        <div class="segmented-control">
+          <button class="segment-btn active" data-fabric="light" id="fabricLightBtn" type="button">
+            ⚪ Tela Clara (Acramina)
           </button>
+          <button class="segment-btn" data-fabric="dark" id="fabricDarkBtn" type="button">
+            ⚫ Tela Oscura (Laca)
+          </button>
+        </div>
 
-          <!-- Resultado del Igualado (Comparativa y Desglose) -->
-          <div id="matchResultContainer" style="margin-top: 1.5rem;">
-            <!-- Comparativa Visual Objetivo vs Simulado -->
-            <div class="match-comparison-box">
-              <div class="comparison-side target-side" id="matchTargetSide" style="background-color: #E40066;">
-                <span class="side-label">Objetivo</span>
-                <span class="side-hex" id="matchTargetHex">#E40066</span>
-              </div>
-              <div class="comparison-side" id="matchSimSide" style="background-color: #DF0060;">
-                <span class="side-label">Tinta Curada</span>
-                <span class="side-hex" id="matchSimHex">#DF0060</span>
-              </div>
-            </div>
+        <!-- Disparador de Foto y Muestras Rápidas -->
+        <div class="photo-trigger-row">
+          <button id="touchUploadTrigger" class="touch-upload-btn" type="button">
+            <span>📸</span> Cargar foto o muestra de tela
+          </button>
+          <input type="file" id="fileInput" accept="image/*" style="display: none;">
+        </div>
 
-            <!-- Tolerancia Delta E -->
-            <div class="delta-eval-bar">
-              <div class="delta-score">
-                <span class="delta-title">Diferencia de Color:</span>
-                <span class="delta-value" id="matchDeltaE">ΔE 0.8</span>
-              </div>
-              <span class="delta-badge badge-success" id="matchQualityBadge">Igualado Perfecto</span>
-            </div>
+        <!-- Tira de muestras de prueba rápidas -->
+        <div class="demo-swatches-strip">
+          <span class="demo-label">Pruebas:</span>
+          <button class="demo-chip" id="demoSwatch1" type="button">🌲 Verde Militar</button>
+          <button class="demo-chip" id="demoSwatch2" type="button">🍯 Mostaza</button>
+          <button class="demo-chip" id="demoSwatch3" type="button">⚓ Azul Marino</button>
+        </div>
 
-            <!-- Alerta si hay sobrepigmentación -->
-            <div id="overpigmentAlert" class="alert-overpigment" style="display: none;">
-              <span>⚠️</span>
-              <span id="overpigmentText">Atención: Carga de pigmento superior a la recomendada.</span>
-            </div>
-
-            <!-- Desglose de Receta (Ingredientes) -->
-            <div class="recipe-breakdown">
-              <div class="breakdown-title">Fórmula Proporcional (% en peso):</div>
-              <div id="recipeIngredientsList">
-                <!-- Se inyecta dinámicamente -->
-              </div>
-            </div>
-
-            <!-- Acciones -->
-            <div class="recipe-actions">
-              <button id="sendToWeighingBtn" class="btn-secondary">
-                <span>⚖️</span> Escalar para Balanza
-              </button>
-              <button id="openSaveModalBtn" class="btn-secondary">
-                <span>💾</span> Guardar Receta
-              </button>
+        <!-- Canvas táctil (Visible solo al cargar imagen o muestra) -->
+        <div id="canvasSection" class="canvas-section" style="display: none;">
+          <div class="canvas-header-bar">
+            <span style="font-size: 0.75rem; color: var(--text-secondary); font-weight: 600;">Desliza el dedo para usar el gotero</span>
+            <button id="closeCanvasBtn" class="btn-close-canvas" type="button" title="Ocultar foto">✕ Cerrar</button>
+          </div>
+          <div class="canvas-container">
+            <canvas id="imageCanvas"></canvas>
+            <div id="canvasPlaceholder" class="canvas-empty-state" style="display: none;">
+              <p>Carga una foto de prenda para usar el gotero con lupa.</p>
             </div>
           </div>
 
+          <!-- Paleta Detectada K-Means -->
+          <div id="paletteStripContainer" class="palette-strip-container" style="display: none;">
+            <div class="palette-title">Colores Detectados en la Foto:</div>
+            <div id="paletteChips" class="palette-strip"></div>
+          </div>
         </div>
+
+        <button id="calculateFormulaBtn" class="btn-action-main" type="button" style="margin-top: 0.6rem;">
+          <span>✨</span> Recalcular Fórmula
+        </button>
       </div>
-    </section>
 
-    <!-- ===============================================================
-         VISTA 2: LABORATORIO LIBRE DE MEZCLAS
-         =============================================================== -->
-    <section id="simulatorTab" class="tab-view">
-      <div class="grid-2col">
-
-        <!-- Columna Izquierda: Sliders de Pigmentos y Bases -->
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title">
-              <span class="icon">🧪</span> Dosificación Libre de Pigmentos
-            </h2>
-            <span class="card-badge">Mezcla Manual</span>
+      <!-- Tarjeta 2: Receta de Taller Resultante -->
+      <div class="match-card" id="matchResultCard">
+        <div class="dual-swatch-view">
+          <div class="dual-side target-border" id="matchTargetSide" style="background-color: #E40066;">
+            <span class="dual-label">Muestra</span>
+            <span class="dual-hex" id="matchTargetHex">#E40066</span>
           </div>
-
-          <div style="margin-bottom: 1.25rem;">
-            <label class="fabric-label" for="simBaseSelect">Base Aglutinante:</label>
-            <select id="simBaseSelect" class="form-control" style="font-weight: 600;">
-              <option value="clear">Base Transparente (Acramina) - Máx 6% pigmento</option>
-              <option value="white_opaque">Laca Blanca Cubritiva - Máx 8% pigmento</option>
-              <option value="neutral_semi">Base Neutra / Semitransparente - Máx 7% pigmento</option>
-            </select>
-          </div>
-
-          <!-- Sliders -->
-          <div class="sliders-grid" id="pigmentSlidersContainer">
-            <!-- Inyectado dinámicamente con los pigmentos estándar -->
-          </div>
-
-          <div style="margin-top: 1.25rem; display: flex; justify-content: flex-end;">
-            <button id="resetSimSlidersBtn" class="btn-secondary" style="font-size: 0.82rem; padding: 0.4rem 0.8rem;">
-              <span>🔄</span> Reiniciar Sliders
-            </button>
+          <div class="dual-side" id="matchSimSide" style="background-color: #DF0060;">
+            <span class="dual-label">Tinta Curada</span>
+            <span class="dual-hex" id="matchSimHex">#DF0060</span>
           </div>
         </div>
 
-        <!-- Columna Derecha: Visualización del Color en Pote y en Prendas -->
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title">
-              <span class="icon">👀</span> Simulación de Tinta y Telas
-            </h2>
-            <span class="card-badge" id="simTotalPigmentBadge">0.0% Pigmento</span>
+        <div class="delta-badge-row">
+          <div style="display: flex; align-items: baseline; gap: 0.4rem;">
+            <span class="delta-value-txt" id="matchDeltaE">ΔE 0.8</span>
+            <span style="font-size: 0.7rem; color: var(--text-muted);">(Diferencia visual)</span>
           </div>
-
-          <!-- Comparativa Húmedo vs Curado -->
-          <div style="margin-bottom: 1.3rem;">
-            <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase; font-weight: 600;">
-              Efecto de Secado (Evaporación del agua):
-            </div>
-            <div class="match-comparison-box" style="margin-bottom: 0.5rem;">
-              <div class="comparison-side" id="simWetBox" style="background-color: #FAFAFA;">
-                <span class="side-label">Tinta en Pote (Húmedo)</span>
-                <span class="side-hex" id="simWetHex">#FAFAFA</span>
-              </div>
-              <div class="comparison-side" id="simDryBox" style="background-color: #FAFAFA;">
-                <span class="side-label">Estampado Seco (Curado)</span>
-                <span class="side-hex" id="simDryHex">#FAFAFA</span>
-              </div>
-            </div>
-            <div style="font-size: 0.75rem; color: var(--text-subtle);">
-              * Las tintas al agua reducen su luminosidad entre un 5% y 8% al secarse y compactarse el polímero acrílico.
-            </div>
-          </div>
-
-          <!-- Simulación sobre Siluetas de Prenda -->
-          <div style="margin-bottom: 1.3rem;">
-            <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase; font-weight: 600;">
-              Comportamiento sobre Fondo Textil:
-            </div>
-            <div class="fabric-previews">
-              <div class="fabric-preview-card white-shirt">
-                <div class="shirt-label">Remera Blanca</div>
-                <div class="shirt-swatch-circle" id="swatchWhiteShirt"></div>
-                <div style="font-size: 0.7rem; font-weight: 600;">100% Algodón</div>
-              </div>
-              <div class="fabric-preview-card gray-shirt">
-                <div class="shirt-label">Gris Melange</div>
-                <div class="shirt-swatch-circle" id="swatchGrayShirt"></div>
-                <div style="font-size: 0.7rem; font-weight: 600;">Poli-Algodón</div>
-              </div>
-              <div class="fabric-preview-card black-shirt">
-                <div class="shirt-label">Remera Negra</div>
-                <div class="shirt-swatch-circle" id="swatchBlackShirt"></div>
-                <div style="font-size: 0.7rem; font-weight: 600;">Fondo Oscuro</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Desglose Actual -->
-          <div class="recipe-breakdown">
-            <div class="breakdown-title">Composición Actual:</div>
-            <div id="simBreakdownList"></div>
-          </div>
-
-          <div class="recipe-actions">
-            <button id="sendSimToWeighingBtn" class="btn-secondary">
-              <span>⚖️</span> Pesar esta Mezcla
-            </button>
-            <button id="openSaveSimModalBtn" class="btn-secondary">
-              <span>💾</span> Guardar como Receta
-            </button>
-          </div>
+          <span class="delta-quality-tag badge-success" id="matchQualityBadge">Igualado Óptimo</span>
         </div>
 
-      </div>
-    </section>
-
-    <!-- ===============================================================
-         VISTA 3: FICHA DE PESAJE PARA BALANZA DIGITAL DE TALLER
-         =============================================================== -->
-    <section id="weighingTab" class="tab-view">
-      <div class="card">
-        <div class="card-header">
-          <div>
-            <h2 class="card-title">
-              <span class="icon">⚖️</span> Ficha de Pesaje de Taller
-            </h2>
-            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem;">
-              Cálculo milimétrico de base, pigmentos y aditivos para balanza de precisión (0.1g)
-            </div>
-          </div>
-
-          <div style="display: flex; gap: 0.75rem;">
-            <button id="printTicketBtn" class="btn-primary" style="padding: 0.55rem 1.15rem; font-size: 0.88rem;">
-              <span>🖨️</span> Imprimir Ficha de Taller
-            </button>
-          </div>
+        <!-- Alerta sobrepigmentación -->
+        <div id="overpigmentAlert" class="alert-overpigment" style="display: none;">
+          <span id="overpigmentText">Atención: Carga de pigmento elevada.</span>
         </div>
 
-        <!-- Encabezado para impresión (visible sólo en print) -->
-        <div class="print-ticket-header" style="display: none;">
-          <h1>ColorTextil Studio - Orden de Mezcla de Taller</h1>
-          <div class="print-meta-grid">
-            <div><strong>Trabajo / Receta:</strong> <span id="printTicketTitle">Verde Oliva</span></div>
-            <div><strong>Fecha:</strong> <span id="printTicketDate">--</span></div>
-            <div><strong>Base Requerida:</strong> <span id="printTicketBase">Acramina Transparente</span></div>
-            <div><strong>Lote Total:</strong> <span id="printTicketTotalGrams">250 g</span></div>
-          </div>
+        <!-- Lista de Ingredientes Proporcionales -->
+        <div class="section-subtitle">
+          Receta Proporcional (% en peso):
         </div>
-
-        <!-- Selector de Tamaño de Lote y Modo Balanza -->
-        <div class="weighing-header-bar">
-          <div class="batch-size-selector">
-            <label for="customBatchInput">Tamaño del Lote:</label>
-            <div class="batch-pills">
-              <button class="pill-btn" data-grams="100">100g (Muestra)</button>
-              <button class="pill-btn active" data-grams="250">250g</button>
-              <button class="pill-btn" data-grams="500">500g</button>
-              <button class="pill-btn" data-grams="1000">1 Kg</button>
-            </div>
-            <div style="display: flex; align-items: center; gap: 0.35rem; margin-left: 0.5rem;">
-              <input type="number" id="customBatchInput" class="text-input" value="250" min="10" max="50000" style="width: 85px;">
-              <span style="font-size: 0.82rem; color: var(--text-muted);">g</span>
-            </div>
-          </div>
-
-          <!-- Estimador por Cantidad de Prendas -->
-          <div style="display: flex; align-items: center; gap: 0.6rem; border-left: 1px solid var(--border-subtle); padding-left: 1rem;">
-            <span style="font-size: 0.82rem; color: var(--text-muted);">Estimador por prendas:</span>
-            <input type="number" id="shirtCountInput" class="text-input" value="25" min="1" max="1000" style="width: 70px;">
-            <select id="shirtCoverageSelect" class="text-input" style="width: 120px;">
-              <option value="small">Pecho chico</option>
-              <option value="medium" selected>A4 Estándar</option>
-              <option value="full">A3 Pleno</option>
-            </select>
-            <button id="applyShirtEstimateBtn" class="pill-btn" style="background: rgba(255,255,255,0.1);">Aplicar</button>
-          </div>
-
-          <!-- Selector de Modo Balanza (Tara Acumulada vs Neto) -->
-          <div class="scale-mode-toggle">
-            <label style="display: flex; align-items: center; gap: 0.45rem; cursor: pointer;">
-              <input type="checkbox" id="scaleModeTare" checked>
-              <span style="color: #ffffff; font-weight: 600;">Modo Balanza (Tara Acumulada)</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Tabla Digital de Pesaje -->
-        <div class="weighing-table-container">
-          <table class="weighing-table">
-            <thead>
-              <tr>
-                <th style="width: 50px;">Paso</th>
-                <th>Componente / Materia Prima</th>
-                <th>Tipo</th>
-                <th style="text-align: right;">% Fórm.</th>
-                <th style="text-align: right;">Peso Neto</th>
-                <th style="text-align: right; color: var(--primary);">Lectura Balanza (Acumulado)</th>
-                <th style="width: 80px; text-align: center;">Control</th>
-              </tr>
-            </thead>
-            <tbody id="weighingTableBody">
-              <!-- Inyectado dinámicamente -->
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Aditivos y Recomendaciones Técnicas del Taller -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.25rem;">
-            <h3 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
-              <span>🧪</span> Aditivos Recomendados para Serigrafía al Agua
-            </h3>
-            <ul id="additivesList" style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem;">
-              <!-- Inyectado dinámicamente -->
-            </ul>
-          </div>
-
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.25rem;">
-            <h3 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--accent-green); display: flex; align-items: center; gap: 0.5rem;">
-              <span>📐</span> Parámetros de Estampado y Curado
-            </h3>
-            <div id="technicalSpecsBox" style="font-size: 0.88rem; display: flex; flex-direction: column; gap: 0.6rem;">
-              <!-- Inyectado dinámicamente -->
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ===============================================================
-         VISTA 4: BIBLIOTECA DE FÓRMULAS GUARDADAS
-         =============================================================== -->
-    <section id="savedTab" class="tab-view">
-      <div class="card">
-        <div class="card-header">
-          <h2 class="card-title">
-            <span class="icon">📚</span> Biblioteca de Fórmulas Guardadas
-          </h2>
-          <span class="card-badge" id="savedCountBadge">0 Fórmulas</span>
-        </div>
-
-        <div style="margin-bottom: 1.25rem;">
-          <input type="text" id="searchSavedInput" class="form-control" placeholder="🔍 Buscar por nombre de receta, cliente o color...">
-        </div>
-
-        <div id="savedRecipesGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.2rem;">
+        <div class="ingredient-list" id="recipeIngredientsList">
           <!-- Inyectado dinámicamente -->
         </div>
 
-        <div id="noSavedRecipesNotice" style="text-align: center; padding: 3rem 1rem; color: var(--text-muted); display: none;">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📦</div>
-          <div style="font-size: 1.1rem; font-weight: 600; color: var(--text-main);">Aún no tienes recetas guardadas</div>
-          <p style="font-size: 0.85rem; margin-top: 0.25rem;">
-            Formula cualquier color en la pestaña principal y pulsa "Guardar Receta" para tenerla siempre a mano en tu taller.
-          </p>
-        </div>
+        <button id="sendToWeighingBtn" class="btn-action-main" type="button">
+          <span>⚖️</span> Pesar esta Receta en Balanza
+        </button>
+        <button id="openSaveModalBtn" class="btn-action-secondary" type="button">
+          <span>💾</span> Guardar en Historial
+        </button>
       </div>
+
     </section>
 
     <!-- ===============================================================
-         VISTA 5: GUÍA DE TALLER Y MEJORES PRÁCTICAS
+         VISTA 2: MEZCLADOR LIBRE (DOSIFICACIÓN)
          =============================================================== -->
-    <section id="guideTab" class="tab-view">
-      <div class="card" style="margin-bottom: 1.5rem;">
-        <div class="card-header">
-          <h2 class="card-title">
-            <span class="icon">💡</span> Manual de Buenas Prácticas en Serigrafía con Tintas al Agua
-          </h2>
-          <span class="card-badge">Estándar Industrial</span>
+    <section id="simulatorTab" class="tab-view">
+      
+      <!-- Previsualización de Mezcla -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title"><span>🧪</span> Mezcla Libre</span>
+          <span id="simTotalPigmentBadge" class="pigment-badge">0.0% Pigmento</span>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.3rem;">
-          <!-- Caja 1 -->
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.2rem;">
-            <h3 style="color: var(--primary); font-size: 1rem; margin-bottom: 0.5rem;">1. Acraminas vs. Lacas</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-              <strong>Acramina (Base Transparente):</strong> Ideal para prendas claras de algodón. La tinta penetra la fibra textil dejando un tacto completamente suave ("tacto cero"). Mallas recomendadas: 77 a 120 hilos/cm.
-            </p>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.5rem;">
-              <strong>Laca (Base Cubritiva):</strong> Contiene dióxido de titanio y resinas elásticas para cubrir telas oscuras. Posee mayor viscosidad. Mallas recomendadas: 43 a 62 hilos/cm.
-            </p>
+        <div class="dual-swatch-view" style="margin-bottom: 0.65rem;">
+          <div class="dual-side target-border" id="simWetBox" style="background-color: #FAFAFA;">
+            <span class="dual-label">En Pote (Húmedo)</span>
+            <span class="dual-hex" id="simWetHex">#FAFAFA</span>
           </div>
+          <div class="dual-side" id="simDryBox" style="background-color: #FAFAFA;">
+            <span class="dual-label">En Tela (Curado)</span>
+            <span class="dual-hex" id="simDryHex">#FAFAFA</span>
+          </div>
+        </div>
 
-          <!-- Caja 2 -->
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.2rem;">
-            <h3 style="color: var(--accent-amber); font-size: 1rem; margin-bottom: 0.5rem;">2. Límite de Pigmentación (%)</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-              Las dispersiones pigmentarias acuosas no poseen aglutinante propio. Si agregas más del <strong>6% en Acraminas</strong> o más del <strong>8% en Lacas</strong>, la resina aglutinante de la base se satura, provocando:
-            </p>
-            <ul style="font-size: 0.82rem; color: #fca5a5; margin-left: 1.2rem; margin-top: 0.4rem;">
-              <li>Pérdida de solidez al frote húmedo y seco.</li>
-              <li>Desprendimiento o sangrado de color en los lavados.</li>
-              <li>Cuarteado prematuro de la laca.</li>
-            </ul>
+        <!-- Muestra sobre prendas -->
+        <div class="shirts-preview-grid">
+          <div class="shirt-card shirt-white">
+            <span class="shirt-label">Blanca</span>
+            <div id="swatchWhiteShirt" class="shirt-swatch"></div>
           </div>
+          <div class="shirt-card shirt-gray">
+            <span class="shirt-label">Gris</span>
+            <div id="swatchGrayShirt" class="shirt-swatch"></div>
+          </div>
+          <div class="shirt-card shirt-black">
+            <span class="shirt-label">Negra</span>
+            <div id="swatchBlackShirt" class="shirt-swatch"></div>
+          </div>
+        </div>
 
-          <!-- Caja 3 -->
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.2rem;">
-            <h3 style="color: var(--accent-green); font-size: 1rem; margin-bottom: 0.5rem;">3. Control de Secado en Malla</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-              Las tintas al agua evaporan humedad al contacto con el aire. Para tiradas medianas o en días calurosos (> 22°C):
-            </p>
-            <ul style="font-size: 0.82rem; color: var(--text-muted); margin-left: 1.2rem; margin-top: 0.4rem;">
-              <li>Añade entre <strong>2% y 4% de retardante</strong> (propilenglicol o gel retardante específico).</li>
-              <li>Mantén siempre la pantalla <em>inundada</em> de tinta entre pase y pase de la manigueta.</li>
-              <li>Pulveriza una fina bruma de agua desmineralizada sobre la tinta si la viscosidad sube.</li>
-            </ul>
-          </div>
+        <div style="margin-bottom: 0.85rem;">
+          <label style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; display: block; margin-bottom: 0.3rem;">Base de Estampado:</label>
+          <select id="simBaseSelect" class="form-input-clean" style="margin-bottom: 0; font-weight: 600;">
+            <option value="clear">Base Transparente (Acramina) - Máx 6%</option>
+            <option value="white_opaque">Laca Blanca Cubritiva - Máx 8%</option>
+            <option value="neutral_semi">Base Neutra / Semitransparente - Máx 7%</option>
+          </select>
+        </div>
 
-          <!-- Caja 5: Marcas en Uruguay, Brasil y Argentina -->
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.2rem;">
-            <h3 style="color: var(--primary); font-size: 1rem; margin-bottom: 0.5rem;">5. Pigmentos en Uruguay, Brasil y Argentina</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-              <strong>Uruguay & Brasil (Estándar Gênesis):</strong> La línea más difundida en Montevideo (comercializada por <em>Centro Serigráfico</em> en República y Galicia, y <em>Cromos</em>) es <strong>Gênesis Sericor T.58</strong> (Amarelo Limão T.5801, Amarelo Ouro T.5802, Vermelho Vivo T.5805, Rubí/Magenta T.5807, Azul Cyan T.5810, Azul Marinho T.5811, Verde Bandeira T.5815, Preto T.5820) sobre bases <strong>Hidrocryl Incolor T.5600</strong> y <strong>Hidrocryl Branco T.5601</strong>.
-            </p>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.5rem;">
-              <strong>Argentina:</strong> La línea líder es <strong>Vortex Colores Tex</strong> (con más de 80 tonos de dispersión acuosa concentrada) y <strong>Color Mixing</strong>, dosificadas sobre Carrier Incoloro o Cubritivo.
-            </p>
-          </div>
+        <button id="sendSimToWeighingBtn" class="btn-action-main" type="button">
+          <span>⚖️</span> Pesar esta Mezcla en Balanza
+        </button>
+      </div>
 
-          <!-- Caja 6: Viabilidad y Conversión a APK Android -->
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.2rem;">
-            <h3 style="color: var(--accent-green); font-size: 1rem; margin-bottom: 0.5rem;">6. ¿Cómo usar esta App como APK en Android?</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-              Esta aplicación cuenta con arquitectura 100% compatible para Android:
-            </p>
-            <ul style="font-size: 0.82rem; color: var(--text-muted); margin-left: 1.2rem; margin-top: 0.4rem; display: flex; flex-direction: column; gap: 0.35rem;">
-              <li><strong>Instalación Directa (PWA / WebAPK):</strong> Abre la app en Google Chrome en tu celular y pulsa el menú (tres puntos) ➔ <em>"Instalar aplicación"</em> o <em>"Agregar a la pantalla principal"</em>. Se instalará con su propio icono, pantalla completa y modo offline.</li>
-              <li><strong>Compilación APK Nativo (Capacitor / Android Studio):</strong> El proyecto incluye <code>capacitor.config.json</code>. Con solo ejecutar <code>npx cap add android</code> y <code>npx cap build</code> se genera el archivo <strong>.apk</strong> listo para instalar o subir a Play Store.</li>
-            </ul>
-          </div>
+      <!-- Deslizadores de Pigmentos -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title"><span>🎚️</span> Pigmentos</span>
+          <button id="resetSimSlidersBtn" class="btn-reset-sliders" type="button">
+            🔄 Reiniciar Todo
+          </button>
+        </div>
+
+        <div id="pigmentSlidersContainer">
+          <!-- Inyectado dinámicamente con sliders compactos -->
         </div>
       </div>
+
+    </section>
+
+    <!-- ===============================================================
+         VISTA 3: MODO BALANZA DIGITAL DE TALLER (HUD GIGANTE)
+         =============================================================== -->
+    <section id="weighingTab" class="tab-view">
+      
+      <!-- Visor Digital HUD de Pesaje -->
+      <div class="scale-hud">
+        <div class="scale-hud-step" id="scaleCurrentStepBadge">Paso 1 de 3</div>
+        <div class="scale-hud-name" id="scaleCurrentIngredientName">Base Incolora</div>
+        <div class="scale-hud-reading" id="scaleTargetReading">240.0 g</div>
+        <div class="scale-hud-caption" id="scaleReadingModeCaption">Vertir hasta alcanzar esta lectura en balanza</div>
+
+        <div class="scale-nav-btns">
+          <button id="scalePrevStepBtn" class="btn-action-secondary" type="button" style="margin-top: 0;">
+            ← Anterior
+          </button>
+          <button id="scaleNextStepBtn" class="btn-action-main" type="button">
+            Siguiente Paso →
+          </button>
+        </div>
+      </div>
+
+      <!-- Selector de Lote Rápido -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title"><span>⚖️</span> Lote a Preparar</span>
+          <div style="display: flex; align-items: center; gap: 0.35rem;">
+            <input type="number" id="customBatchInput" class="color-input-text" value="250" min="10" max="50000" style="width: 75px; text-align: center;">
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">g</span>
+          </div>
+        </div>
+
+        <div class="batch-pills-row">
+          <button class="batch-pill-btn" data-grams="100" type="button">100g</button>
+          <button class="batch-pill-btn active" data-grams="250" type="button">250g</button>
+          <button class="batch-pill-btn" data-grams="500" type="button">500g</button>
+          <button class="batch-pill-btn" data-grams="1000" type="button">1 Kg</button>
+        </div>
+
+        <div class="scale-options-row">
+          <label class="scale-tare-label">
+            <input type="checkbox" id="scaleModeTare" checked>
+            <span>Modo Tara Acumulada</span>
+          </label>
+          <button id="printTicketBtn" class="btn-print-ticket" type="button">
+            🖨️ Imprimir Ficha
+          </button>
+        </div>
+      </div>
+
+      <!-- Lista de Pesaje Táctil / Checklist -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title"><span>📋</span> Componentes</span>
+          <span style="font-size: 0.74rem; color: var(--text-muted);">Toca para activar paso</span>
+        </div>
+
+        <div class="weigh-checklist" id="weighChecklistContainer">
+          <!-- Inyectado dinámicamente -->
+        </div>
+      </div>
+
+      <!-- Aditivos y Consejos Técnicos -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title"><span>💡</span> Aditivos & Curado</span>
+        </div>
+        <ul id="additivesList" class="additives-list">
+          <!-- Inyectado dinámicamente -->
+        </ul>
+        <div id="technicalSpecsBox" class="tech-specs-box">
+          <!-- Inyectado dinámicamente -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===============================================================
+         VISTA 4: GUARDADAS & PARÁMETROS
+         =============================================================== -->
+    <section id="savedTab" class="tab-view">
+      
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title"><span>📚</span> Historial</span>
+          <span id="savedCountBadge" class="saved-badge">0 Recetas</span>
+        </div>
+
+        <input type="text" id="searchSavedInput" class="form-input-clean" placeholder="🔍 Buscar por nombre, cliente o tono...">
+
+        <div id="savedRecipesGrid" class="saved-recipes-grid">
+          <!-- Inyectado dinámicamente -->
+        </div>
+
+        <div id="noSavedRecipesNotice" class="empty-notice" style="display: none;">
+          <p>No hay fórmulas guardadas todavía.</p>
+        </div>
+      </div>
+
+      <!-- Guía Rápida de Taller -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title"><span>📐</span> Guía de Parámetros</span>
+        </div>
+        <div class="workshop-params-text">
+          <div><strong>Acramina (Prendas Claras):</strong> Malla 77 a 120 hilos • Carga máx. 6% de pigmento • Curado 150°C - 160°C por 2.5 min.</div>
+          <div><strong>Laca (Prendas Oscuras):</strong> Malla 43 a 62 hilos • Carga máx. 8% de pigmento • Retardante 2% a 4%.</div>
+          <div><strong>Tintas Regionales:</strong> Fórmulas calibradas para Gênesis Sericor T.58 (Uruguay/Brasil) y Vortex Colores Tex (Argentina).</div>
+        </div>
+      </div>
+
     </section>
 
   </main>
 
   <!-- ===================================================================
-       Modal: Guardar Receta en Biblioteca
+       Barra de Navegación Inferior Fija (Bottom Tab Bar Móvil)
        =================================================================== -->
-  <div id="saveRecipeModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-card">
-      <h3 id="modalTitle" class="modal-title">Guardar Receta en Biblioteca</h3>
-      <div class="form-group">
-        <label for="saveRecipeTitle">Nombre de la Receta / Tono:</label>
-        <input type="text" id="saveRecipeTitle" class="form-control" placeholder="Ej: Verde Militar Hoodie, Azul Marino Coca">
-      </div>
-      <div class="form-group">
-        <label for="saveRecipeClient">Cliente / Proyecto (Opcional):</label>
-        <input type="text" id="saveRecipeClient" class="form-control" placeholder="Ej: Marca Urbana X - Tirada Verano">
-      </div>
-      <div class="form-group">
-        <label for="saveRecipeNotes">Notas de Taller (Malla usada, tela, pasadas):</label>
-        <textarea id="saveRecipeNotes" class="form-control" rows="3" placeholder="Ej: Malla 90 hilos, 2 pasadas con racleta 75 shores, pre-secado con pistola"></textarea>
-      </div>
-      <div class="modal-actions">
-        <button id="cancelSaveModalBtn" class="btn-secondary">Cancelar</button>
-        <button id="confirmSaveRecipeBtn" class="btn-primary">Guardar Fórmula</button>
-      </div>
-    </div>
-  </div>
+  <nav class="bottom-nav" aria-label="Navegación principal">
+    <button class="bottom-tab-btn active" data-target="matcherTab" id="navMatcher" type="button">
+      <span class="tab-icon">🎯</span>
+      <span>Formular</span>
+    </button>
+    <button class="bottom-tab-btn" data-target="simulatorTab" id="navSimulator" type="button">
+      <span class="tab-icon">🧪</span>
+      <span>Mezclar</span>
+    </button>
+    <button class="bottom-tab-btn" data-target="weighingTab" id="navWeighing" type="button">
+      <span class="tab-icon">⚖️</span>
+      <span>Balanza</span>
+    </button>
+    <button class="bottom-tab-btn" data-target="savedTab" id="navSaved" type="button">
+      <span class="tab-icon">📚</span>
+      <span>Guardadas</span>
+    </button>
+  </nav>
 
   <!-- ===================================================================
-       Modal: Instrucciones de Instalación
+       Modales
        =================================================================== -->
-  <div id="installInstructionsModal" class="modal-overlay" role="dialog" aria-modal="true">
-    <div class="modal-card" style="max-width: 520px;">
-      <h3 class="modal-title" style="display: flex; align-items: center; gap: 0.5rem;">
-        <span>📲</span> Cómo Instalar ColorTextil Studio
-      </h3>
-      <div style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.88rem; color: var(--text-main);">
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.85rem;">
-          <strong style="color: var(--primary);">📱 En Celular Android (Google Chrome o Edge):</strong>
-          <p style="color: var(--text-muted); margin-top: 0.3rem;">
-            Toca el menú de <strong>tres puntos (⋮)</strong> en la esquina superior derecha del navegador y selecciona <strong>"Instalar aplicación"</strong> (o <em>"Agregar a la pantalla principal"</em>).
-          </p>
-        </div>
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.85rem;">
-          <strong style="color: var(--accent-green);">💻 En Computadora (Microsoft Edge o Chrome):</strong>
-          <p style="color: var(--text-muted); margin-top: 0.3rem;">
-            Mira en la barra de direcciones arriba a la derecha: verás un icono con forma de pantalla y un <strong>+</strong>. Haz clic en <strong>"Instalar ColorTextil Studio"</strong>.
-          </p>
-        </div>
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.85rem;">
-          <strong style="color: var(--accent-amber);">🍏 En iPhone / iPad (Safari):</strong>
-          <p style="color: var(--text-muted); margin-top: 0.3rem;">
-            Toca el botón <strong>Compartir</strong> (cuadrado con flecha hacia arriba) y selecciona <strong>"Agregar a pantalla de inicio"</strong>.
-          </p>
-        </div>
-      </div>
-      <div class="modal-actions" style="margin-top: 1.25rem;">
-        <button id="closeInstallModalBtn" class="btn-primary" style="width: 100%;">¡Entendido!</button>
+  <!-- Modal Guardar Receta -->
+  <div id="saveRecipeModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <h3 class="modal-title">Guardar Receta en Historial</h3>
+      <input type="text" id="saveRecipeTitle" class="form-input-clean" placeholder="Nombre (ej: Verde Oliva Hoodie)">
+      <input type="text" id="saveRecipeClient" class="form-input-clean" placeholder="Cliente / Proyecto (Opcional)">
+      <textarea id="saveRecipeNotes" class="form-input-clean" rows="2" placeholder="Notas de taller (Malla usada, tela, pasadas)"></textarea>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.5rem;">
+        <button id="cancelSaveModalBtn" class="btn-action-secondary" type="button" style="margin-top:0;">Cancelar</button>
+        <button id="confirmSaveRecipeBtn" class="btn-action-main" type="button">Guardar</button>
       </div>
     </div>
   </div>
 
-  <!-- Scripts de la Aplicación -->
+  <!-- Modal Instrucciones de Instalación -->
+  <div id="installInstructionsModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <h3 class="modal-title" style="display: flex; align-items: center; gap: 0.4rem;">
+        <span>📲</span> Instalar ColorTextil en tu Móvil
+      </h3>
+      <div class="install-guide-text">
+        <div>
+          <strong style="color: var(--accent-primary);">📱 Android (Chrome / Edge):</strong><br>
+          Toca los <strong>tres puntos (⋮)</strong> arriba a la derecha del navegador y pulsa <strong>"Instalar aplicación"</strong> o <em>"Agregar a pantalla principal"</em>.
+        </div>
+        <div>
+          <strong style="color: var(--accent-success);">🍏 iPhone (Safari):</strong><br>
+          Toca el botón <strong>Compartir</strong> (cuadrado con flecha hacia arriba) y selecciona <strong>"Agregar a pantalla de inicio"</strong>.
+        </div>
+      </div>
+      <button id="closeInstallModalBtn" class="btn-action-main" type="button" style="margin-top: 1.15rem;">Entendido</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
   <script src="js/color-math.js"></script>
   <script src="js/pigment-engine.js"></script>
   <script src="js/image-detector.js"></script>

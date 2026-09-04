@@ -129,7 +129,7 @@ class ImageDetector {
     }
 
     const color = this.sampleColorAt(x, y, this.sampleSize);
-    this.drawLoupe(x, y, color, screenX, screenY);
+    this.drawLoupe(x, y, color, screenX, screenY, isTouch);
   }
 
   handleMouseLeave() {
@@ -183,23 +183,31 @@ class ImageDetector {
   /**
    * Renderiza el visor ampliado (lupa con zoom 6x y retícula)
    */
-  drawLoupe(sourceX, sourceY, sampledColor, screenX, screenY) {
+  drawLoupe(sourceX, sourceY, sampledColor, screenX, screenY, isTouch = false) {
     if (!this.loupeCanvas || !this.loupeContainer) return;
 
     this.loupeContainer.style.display = 'block';
 
-    // Posicionamiento inteligente del popup de la lupa flotante
-    const offset = 20;
-    const containerW = 160;
-    const containerH = 190;
-    let posX = screenX + offset;
-    let posY = screenY - containerH / 2;
+    const containerW = 140;
+    const containerH = 150;
+    let posX, posY;
 
-    if (posX + containerW > window.innerWidth) {
-      posX = screenX - containerW - offset;
+    if (isTouch) {
+      // En móvil, la lupa se eleva claramente por encima del pulgar
+      posX = screenX - containerW / 2;
+      posY = screenY - containerH - 35;
+      if (posY < 10) posY = screenY + 45; // Si está muy cerca del borde superior, mostrar abajo
+    } else {
+      posX = screenX + 20;
+      posY = screenY - containerH / 2;
+    }
+
+    if (posX < 10) posX = 10;
+    if (posX + containerW > window.innerWidth - 10) {
+      posX = window.innerWidth - containerW - 10;
     }
     if (posY < 10) posY = 10;
-    if (posY + containerH > window.innerHeight) {
+    if (posY + containerH > window.innerHeight - 10) {
       posY = window.innerHeight - containerH - 10;
     }
 

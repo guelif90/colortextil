@@ -1,13 +1,13 @@
 {
   "name": "ColorTextil Studio - Serigrafía Textil",
   "short_name": "ColorTextil",
-  "description": "Formulación, detección por foto y mezcla de tintas textiles al agua para serigrafía",
+  "description": "Formulación, detección por foto y pesaje de tintas textiles al agua para serigrafía en móvil",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#0a0e17",
-  "theme_color": "#00e5ff",
+  "background_color": "#090c12",
+  "theme_color": "#090c12",
   "lang": "es-UY",
   "icons": [
     {
