@@ -1,0 +1,10 @@
+# Dependencias y temporales
+node_modules/
+android/
+www/
+package-lock.json
+
+# Sistema y logs
+.DS_Store
+Thumbs.db
+*.log

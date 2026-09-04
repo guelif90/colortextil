@@ -1,0 +1,23 @@
+{
+  "name": "colortextil-studio",
+  "version": "1.0.0",
+  "description": "ColorTextil Studio - Software profesional para formulación de tintas textiles al agua",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8080"
+  },
+  "keywords": [
+    "serigrafia",
+    "textil",
+    "tintas",
+    "acramina",
+    "laca"
+  ],
+  "author": "ColorTextil",
+  "license": "MIT",
+  "dependencies": {
+    "@capacitor/android": "^8.5.1",
+    "@capacitor/cli": "^8.5.1",
+    "@capacitor/core": "^8.5.1"
+  }
+}

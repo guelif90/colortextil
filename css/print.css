@@ -1,0 +1,146 @@
+/* ===================================================================
+   ColorTextil Studio - Print Stylesheet for Workshop Scale Tickets
+   Formato optimizado para impresión de Fichas de Pesaje de Taller
+   =================================================================== */
+
+@media print {
+  /* Ocultar elementos no imprimibles */
+  .app-header,
+  .nav-tabs,
+  .dropzone-container,
+  .image-controls-bar,
+  .canvas-wrapper,
+  .palette-section,
+  .color-picker-group,
+  .fabric-selector,
+  .btn-primary,
+  .btn-secondary,
+  .recipe-actions,
+  .batch-size-selector,
+  .scale-mode-toggle,
+  .modal-overlay,
+  .tab-view:not(#weighingView) {
+    display: none !important;
+  }
+
+  /* Reset de página para impresión */
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
+    line-height: 1.4;
+    padding: 0;
+    margin: 0;
+  }
+
+  .main-wrapper {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 10mm !important;
+  }
+
+  .card {
+    background: transparent !important;
+    border: 1.5px solid #333333 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 15px !important;
+    page-break-inside: avoid;
+  }
+
+  .card-header {
+    border-bottom: 2px solid #000000 !important;
+    padding-bottom: 10px !important;
+  }
+
+  .card-title {
+    color: #000000 !important;
+    font-size: 16pt !important;
+  }
+
+  /* Encabezado del ticket */
+  .print-ticket-header {
+    display: block !important;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #666666;
+    padding-bottom: 10px;
+  }
+
+  .print-ticket-header h1 {
+    font-size: 18pt;
+    margin-bottom: 5px;
+  }
+
+  .print-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 10pt;
+    margin-bottom: 12px;
+  }
+
+  /* Muestras de color impresas */
+  .print-color-swatches {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+
+  .print-swatch-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .print-swatch-circle {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #000000;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Tabla de Pesaje */
+  .weighing-table {
+    width: 100% !important;
+    border: 1px solid #000000 !important;
+    margin-top: 15px !important;
+  }
+
+  .weighing-table th {
+    background: #f0f0f0 !important;
+    color: #000000 !important;
+    border-bottom: 2px solid #000000 !important;
+    font-weight: bold !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .weighing-table td {
+    border-bottom: 1px solid #cccccc !important;
+    color: #000000 !important;
+    padding: 8px 10px !important;
+  }
+
+  .scale-digit {
+    font-size: 14pt !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+    text-shadow: none !important;
+  }
+
+  .print-checkbox {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #000000;
+    display: inline-block;
+  }
+
+  /* Recomendaciones técnicas */
+  .tech-notes-box {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px dashed #666666;
+    font-size: 9.5pt;
+  }
+}
