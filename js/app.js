@@ -873,6 +873,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Lógica de Instalación de la App (PWA / WebAPK)
+  let deferredInstallPrompt = null;
+  const installAppBtn = document.getElementById('installAppBtn');
+  const installInstructionsModal = document.getElementById('installInstructionsModal');
+  const closeInstallModalBtn = document.getElementById('closeInstallModalBtn');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredInstallPrompt = e;
+  });
+
+  if (installAppBtn) {
+    installAppBtn.addEventListener('click', async () => {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        const { outcome } = await deferredInstallPrompt.userChoice;
+        if (outcome === 'accepted') {
+          installAppBtn.style.display = 'none';
+        }
+        deferredInstallPrompt = null;
+      } else {
+        if (installInstructionsModal) installInstructionsModal.classList.add('active');
+      }
+    });
+  }
+
+  if (closeInstallModalBtn && installInstructionsModal) {
+    closeInstallModalBtn.addEventListener('click', () => {
+      installInstructionsModal.classList.remove('active');
+    });
+  }
+
   // =================================================================
   // Inicialización de la Aplicación
   // =================================================================

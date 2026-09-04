@@ -55,6 +55,11 @@
       </nav>
 
       <div style="display: flex; align-items: center; gap: 0.6rem;">
+        <!-- Botón de Instalación Directa -->
+        <button id="installAppBtn" class="btn-primary" style="padding: 0.35rem 0.85rem; font-size: 0.82rem; border-radius: var(--radius-full); box-shadow: 0 0 15px rgba(0,229,255,0.4);" title="Instalar como App en este dispositivo">
+          <span style="font-size: 1rem;">📲</span> Instalar App
+        </button>
+
         <!-- Selector Regional de Pigmentos -->
         <div style="display: flex; align-items: center; gap: 0.35rem; background: rgba(255,255,255,0.06); padding: 0.35rem 0.65rem; border-radius: var(--radius-full); border: 1px solid var(--border-subtle);" title="Selecciona la marca de pigmentos que usas en tu taller">
           <span style="font-size: 0.85rem;">📦</span>
@@ -616,6 +621,40 @@
       <div class="modal-actions">
         <button id="cancelSaveModalBtn" class="btn-secondary">Cancelar</button>
         <button id="confirmSaveRecipeBtn" class="btn-primary">Guardar Fórmula</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       Modal: Instrucciones de Instalación
+       =================================================================== -->
+  <div id="installInstructionsModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-card" style="max-width: 520px;">
+      <h3 class="modal-title" style="display: flex; align-items: center; gap: 0.5rem;">
+        <span>📲</span> Cómo Instalar ColorTextil Studio
+      </h3>
+      <div style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.88rem; color: var(--text-main);">
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.85rem;">
+          <strong style="color: var(--primary);">📱 En Celular Android (Google Chrome o Edge):</strong>
+          <p style="color: var(--text-muted); margin-top: 0.3rem;">
+            Toca el menú de <strong>tres puntos (⋮)</strong> en la esquina superior derecha del navegador y selecciona <strong>"Instalar aplicación"</strong> (o <em>"Agregar a la pantalla principal"</em>).
+          </p>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.85rem;">
+          <strong style="color: var(--accent-green);">💻 En Computadora (Microsoft Edge o Chrome):</strong>
+          <p style="color: var(--text-muted); margin-top: 0.3rem;">
+            Mira en la barra de direcciones arriba a la derecha: verás un icono con forma de pantalla y un <strong>+</strong>. Haz clic en <strong>"Instalar ColorTextil Studio"</strong>.
+          </p>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.85rem;">
+          <strong style="color: var(--accent-amber);">🍏 En iPhone / iPad (Safari):</strong>
+          <p style="color: var(--text-muted); margin-top: 0.3rem;">
+            Toca el botón <strong>Compartir</strong> (cuadrado con flecha hacia arriba) y selecciona <strong>"Agregar a pantalla de inicio"</strong>.
+          </p>
+        </div>
+      </div>
+      <div class="modal-actions" style="margin-top: 1.25rem;">
+        <button id="closeInstallModalBtn" class="btn-primary" style="width: 100%;">¡Entendido!</button>
       </div>
     </div>
   </div>
